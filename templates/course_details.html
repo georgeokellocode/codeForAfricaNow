@@ -1,0 +1,62 @@
+
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<div class="single-channel-page" id="content-wrapper">
+    <div class="single-channel-image">
+        <img class="img-fluid" alt="" style="height: 300px; width: 950px"  src="{{course.course_banner.url}}">
+        <div class="channel-profile">
+            <img class="channel-profile-img rounded-circle account-img" width="100" height="100" alt="" src="{{course.course_picture.url}}">
+        </div>
+    </div>
+    <div class="single-channel-nav">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="channel-brand" href="#">{{course.course_name}} <span title="" data-placement="top"
+                    data-toggle="tooltip" data-original-title="Verified"><i
+                        class="fas fa-check-circle text-success"></i></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    <div>
+        <h4>List of course content</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center pt-5">
+            {% for content in contents %}
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="video-card-image">
+                    <a class="play-icon" href="{% url 'play_video' content.id %}"><i class="fas fa-play-circle"></i></a>
+                    <a href="{% url 'play_video' content.id %}"><img class="img-fluid" style="height: 155px;" src="{{content.thumbnail.url}}" alt=""></a>
+                    <div class="time">3:50</div>
+                </div>
+                <div class="video-card-body">
+                    <div class="video-title">
+                        <a href="#">{{content.content_name}}</a>
+                    </div>
+                    <div class="video-page text-success">
+                        {{content.about}} <a title="" data-placement="top" data-toggle="tooltip" href="#"
+                            data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                    </div>
+                    <!-- <div class="video-view">
+                        {{video.views}} &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                    </div> -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}

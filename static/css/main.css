@@ -1,0 +1,11 @@
+.loginPage{
+    height: 350px;
+    background: #E7ECEF;
+}
+
+.inputArea{
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    /* margin-left: 25px; */
+}

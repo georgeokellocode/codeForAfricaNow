@@ -1,0 +1,96 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<div class="container-fluid pb-0">
+    <div class="video-block section-padding">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="single-video-left">
+                    <div class="single-video">
+                        <video width="100%" height="315" controls autoplay>
+                            <source src="{{content.content.url}}"  type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="single-video-title box mb-3">
+                        <h2><a href="#">{{content.content_name}}</a></h2>
+                    </div>
+                    <div class="single-video-author box mb-3">
+                        <div class="float-right">
+                            
+                        </div>
+                        <img width="100" height="100" class="rounded-circle account-img" src="{{content.course_name.course_picture.url}}" alt="">
+                        <p><a href="#"><strong>{{content.course_name}}</strong></a> <span title=""
+                                data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i
+                                    class="fas fa-check-circle text-success"></i></span></p>
+                        <small>Published on {{content.date}}</small>
+                    </div>
+                    <div class="single-video-info-content box mb-3">
+                        <h6>About</h6>
+                        <p>{{content.about}}</p>
+                    </div>
+                    <div>
+                        <form id="feedbackForm" method="POST" enctype="multipart/form-data">
+                            <div class="row gx-5">
+                                <div class="col-md-12">
+                                    {% csrf_token %}
+                                    <div class="input-group flex-nowrap">
+                                        <input type="text" id="comment" class="form-control" placeholder="Send us your feedback" aria-label="Username" aria-describedby="addon-wrapping">
+                                    </div>
+                                    <div class="input-group flex-nowrap">
+                                        <input type="hidden" id="contentComment" class="form-control" value="{{content}}">
+                                    </div>
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-video-right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-title">
+                                <h6>Up Next</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- loop through the videos -->
+                            {% for content in contents %}
+                            <div class="video-card video-card-list">
+                                <div class="video-card-image">
+                                    <a class="play-icon" href="{% url 'play_video' content.id %}"><i class="fas fa-play-circle"></i></a>
+                                    <a href="{% url 'play_video' content.id %}"><img class="img-fluid" src="{{content.thumbnail.url}}" alt=""></a>
+                                    <div class="time">3:50</div>
+                                </div>
+                                <div class="video-card-body">
+                                    <div class="btn-group float-right right-action">
+                                    </div>
+                                    <div class="video-title">
+                                        <a href="#">{{content.content_name}}</a>
+                                    </div>
+                                    <div class="video-page text-success">
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <div class="adblock mt-0">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'js/makeComment.js' %}"></script>
+{% endblock script %}

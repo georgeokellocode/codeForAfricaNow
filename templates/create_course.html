@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<div class="container-fluid pb-5">
+    <div>
+        <h2>Create a New Course</h2>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="row gx-5">
+            <div class="col-md-6 mx-auto upload-video pt-5 pb-2 p-5">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Course Name</label>
+                    <p>{{c_form.course_name}}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <p>{{c_form.description}}</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Course picture</label>
+                    <p>{{c_form.course_picture}}</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mx-auto  upload-video pt-5 pb-2 p-5">
+                <div class="form-group">
+                    <label>Course Banner</label>
+                    <p>{{c_form.course_banner}}</p>
+                </div>
+                
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-outline-primary btn-lg">Create</button>
+                </div>
+
+            </div>
+    
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}

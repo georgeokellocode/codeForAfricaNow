@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<h1>User Feedback</h1>
+<hr/>
+    {% for feedback in feedbacks %}
+    <div class="card-body">
+        <h5 class="card-title">{{feedback.contentCommented}}</h5>
+        <p class="card-text">{{feedback.comment}}</p>
+        <p class="text-muted">{{feedback.date}}</p>
+        <a href="#" class="btn btn-outline-danger">Delete</a>
+    </div>
+    {% endfor %}
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
