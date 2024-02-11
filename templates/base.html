@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code for Africa</title>
+    <title>Code for Africa Now</title>
     <link href="{% static 'asset/css/headers.css' %}" rel="stylesheet" >
     <link href="{% static 'asset/css/main.css' %}" rel="stylesheet" >
     <!--Fontawasome-->
@@ -20,7 +20,7 @@
 
     
 <div class="d-flex">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 100vh; position: fixed; z-index: 1">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="background: #6F9CB7; color:#000; width: 280px; height: 100vh; position: fixed; z-index: 1">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
           <span class="fs-4">Dashboard</span>
@@ -28,39 +28,39 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li style="background-color: white; margin: 5px">
-            <a  href="/courses" class="nav-link text-black">
+            <a  href="/courses" class="nav-link" style="color:#000">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Courses
             </a>
           </li>
           <li style="background-color: white; margin: 5px">
-            <a  href="/create_child" class="nav-link text-black">
+            <a  href="/create_child" class="nav-link" style="color:#000">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Create child Account
             </a>
           </li>
           <li style="background-color: white; margin: 5px">
-            <a  href="/create_instructor" class="nav-link text-black">
+            <a  href="/create_instructor" class="nav-link" style="color:#000">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Instructors
             </a>
           </li>
           {% if user.is_superuser %}
           <li style="background-color: white; margin: 5px">
-            <a  href="/upload" class="nav-link text-black">
+            <a  href="/upload" class="nav-link" style="color:#000">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               Upload content
             </a>
           </li>
           <li style="background-color: white; margin: 5px">
-            <a  href="/get_user_feedback" class="nav-link text-black">
+            <a  href="/get_user_feedback" class="nav-link" style="color:#000">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
               User Feedback
             </a>
           </li>
           {% endif %}
           {% if user.is_authenticated %}
-            <li class="pt-4 p-2">
+            <li class="pt-4 p-2" style="color:#000">
               <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button type="button" class="btn btn-outline-danger text-align ">Logout</button>
@@ -68,13 +68,13 @@
             </li>
           {% else %}
             <li style="background-color: white; margin: 5px">
-              <a  href="/login" class="nav-link text-black">
+              <a  href="/login" class="nav-link" style="color:#000">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
                 Login 
               </a>
             </li>
             <li style="background-color: white; margin: 5px">
-              <a  href="/register" class="nav-link text-black">
+              <a  href="/register" class="nav-link" style="color:#000">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
                 Sign Up
               </a>
@@ -92,7 +92,7 @@
         </li>
       </div>
       <div>
-        <header class="p-3 bg-dark text-white fixed-top">
+        <header class="p-3 text-white fixed-top" style="background: #6F9CB7;">
             <div class="container">
               <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -100,8 +100,8 @@
                 </a>
         
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                  <li><a href="#" class="nav-link px-2 text-white">Code For Africa</a></li>
-                </ul>
+                  <li><a href="#" class="nav-link px-2" style="color: #000; font-weight: bold">Code For Africa Now</a></li>
+                </ul
 
               </div>
             </div>
