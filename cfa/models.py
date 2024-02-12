@@ -17,8 +17,8 @@ class Courses(models.Model):
     course_name = models.CharField(max_length=120)
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name='course_user')
     description = models.TextField()
-    course_picture = models.ImageField(default="default.png", null=True, blank=True, upload_to='course_pics')
-    course_banner = models.ImageField( default="default.png", null=True, blank=True, upload_to='course_banner_pics')
+    course_picture = models.ImageField(default="default.jpg", null=True, blank=True, upload_to='course_pics')
+    course_banner = models.ImageField( default="default.jpg", null=True, blank=True, upload_to='course_banner_pics')
 
     def __str__(self):
         return f"{self.course_name}"
@@ -29,7 +29,7 @@ class Content(models.Model):
     content = models.FileField(upload_to='uploaded_content')
     about = models.TextField(max_length=120)
     course_name = models.ForeignKey(Courses, on_delete=models.CASCADE, related_name='course_content')
-    thumbnail = models.ImageField(default="default.png", null=True, blank=True, upload_to='content_thumbnail')
+    thumbnail = models.ImageField(default="default.jpg", null=True, blank=True, upload_to='content_thumbnail')
     date = models.DateField(auto_now=True)
     # duration = models.CharField(max_length=120)
 
@@ -43,7 +43,7 @@ class Content(models.Model):
    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.png',null=True, blank=True, upload_to='profile_pics')
+    image = models.ImageField(default='default.PNG',null=True, blank=True, upload_to='profile_pics')
 
     def __str__(self):
         return f'{self.user.username} Profile'
