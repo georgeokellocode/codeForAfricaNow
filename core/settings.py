@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-ej16)up%h=2%^=hn90zv+m%%i&-dh%wgzl77x=sd$)l3+pyy%5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['codeforafricanow.onrender.com']
 
 
 # Application definition
@@ -101,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/nairobi'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
